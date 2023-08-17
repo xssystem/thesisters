@@ -20,6 +20,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <title>The Sisters - Cake Order Form</title>
 <style>
   body {
@@ -52,7 +53,14 @@
       opacity: 1;
     }
   }
-
+ .flag-icon {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    line-height: 1;
+  }
   label, input, select, textarea {
     display: block;
     margin-bottom: 10px;
@@ -134,12 +142,19 @@
     <label for='fullName'><span class='required'>*</span> Full Name:</label>
     <input type='text' id='fullName' name='fullName' required>
     <label for='phoneNumber'><span class='required'>*</span> Phone Number:</label>
-    <div style='display: flex;'>
-      <select id='phoneCountry' name='phoneCountry' style='flex: 1; margin-right: 10px;' required>
-        <option value='+1'>USA (+1)</option>
-        <option value='+52' selected>Mexico (+52)</option>
+    <div style="display: flex;">
+      <div style="flex: 1; margin-right: 10px;">
+        <select id="phoneCountry" name="phoneCountry" required>  
+              <option value="+1" data-flag="fa-flag-usa">USA (+1)</option>
+              <option value="+52" selected data-flag="fa-flag-mexico">Mexico (+52)</option>
       </select>
-      <input type='text' id='phoneNumber' name='phoneNumber' style='flex: 2;' maxlength='10' required>
+      </div>
+    <div style="flex: 2;">
+        <div style="position: relative;">
+        <span class="flag-icon"></span>
+          <input type="text" id="phoneNumber" name="phoneNumber" maxlength="10" required>
+        </div>
+      </div>
     </div>
         <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
         <input type='date' id='pickupDate' name='pickupDate' required
