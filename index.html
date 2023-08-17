@@ -145,7 +145,7 @@
         <input type='time' id='pickupTime' name='pickupTime' required
                min='08:00' max='18:00'>
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
-    <select id='cakeSize' name='cakeSize' required>
+    <select id='cakeSize' name='cakeSize' required required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='1/2 Box'>1/2 Box</option>
       <option value='1 Box'>1 Box</option>
@@ -159,7 +159,7 @@
       <option value='5 Box'>5 Box</option>
     </select>
     <label for='cakeFlavor'><span class='required'>*</span> Cake Flavor:</label>
-    <select id='cakeFlavor' name='cakeFlavor' required>
+    <select id='cakeFlavor' name='cakeFlavor' required required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Traditional white'>Traditional white</option>
       <option value='Devils food chocolate'>Devils food chocolate</option>
@@ -171,7 +171,7 @@
       <option value='Butter pecan'>Butter pecan</option>
     </select>
     <label for='cakeFilling'><span class='required'>*</span> Cake Filling (Pudding):</label>
-    <select id='cakeFilling' name='cakeFilling' required>
+    <select id='cakeFilling' name='cakeFilling' required required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Vanilla'>Vanilla</option>
       <option value='Chocolate'>Chocolate</option>
@@ -193,7 +193,7 @@
       <option value='Lemon'>Lemon</option>
     </select>
     <label for='jamFilling'>Cake Filling (Jam):</label>
-    <select id='jamFilling' name='jamFilling'>
+    <select id='jamFilling' name='jamFilling' required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Raspberry'>Raspberry</option>
       <option value='Strawberry'>Strawberry</option>
@@ -207,7 +207,44 @@
     <button type='button' onclick='submitCakeOrder()'>Send Order</button>
   </form>
 
+  <p>Total: <span id='totalAmount'>$0</span></p>
+  
   <script>
+
+  function calculateTotal() {
+    var cakeSize = document.getElementById('cakeSize');
+    var cakeFlavor = document.getElementById('cakeFlavor');
+    var cakeFilling = document.getElementById('cakeFilling');
+
+    // Definir los precios para cada tamaño, sabor y relleno de pastel
+    var sizePrice = {
+      '1/2 Box': 15,
+      '1 Box': 25,
+      // ... más opciones ...
+    };
+
+    var flavorPrice = {
+      'Traditional white': 5,
+      'Devils food chocolate': 6,
+      // ... más opciones ...
+    };
+
+    var fillingPrice = {
+      'Vanilla': 2,
+      'Chocolate': 2,
+      // ... más opciones ...
+    };
+
+    var total = 0;
+    if (cakeSize.value && cakeFlavor.value && cakeFilling.value) {
+      total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
+    }
+
+    var totalAmount = document.getElementById('totalAmount');
+    totalAmount.textContent = '$' + total;
+  }
+
+    
     function submitCakeOrder() {
       // Aquí puedes implementar la lógica para procesar el formulario
       // y enviar los datos a la plataforma que estés utilizando.
