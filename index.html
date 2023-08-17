@@ -134,7 +134,7 @@
     </div>
     <br><br>
     <label for='fullName'><span class='required'>*</span> Full Name:</label>
-    <input type='text' id='fullName' name='fullName' required oninput='convertToProperCase(this)> 
+    <input type='text' id='fullName' name='fullName' required oninput='convertToProperCase(this)'> 
     <label for='phoneNumber'><span class='required'>*</span> WhatsAPP or Phone Number:</label>
     <div style='display: flex;'>
       <select id='phoneCountry' name='phoneCountry' style='flex: 1; margin-right: 10px;' required>
@@ -317,7 +317,7 @@
       var message = `
         *The Sisters Cake Order:*
         *Name:* ${fullName}
-        *WhatsAPP:* +${phoneCountry}${phoneNumber}
+        *WhatsAPP:* ${phoneCountry}${phoneNumber}
         *Pickup Date:* ${pickupDate}
         *Pickup Time:* ${pickupTime}
         *Cake Size:* ${cakeSize}
