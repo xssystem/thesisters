@@ -291,7 +291,8 @@
       var totalAmount = document.getElementById('totalAmount');
       totalAmount.textContent = '$' + total;
     }
-    
+      
+      var lastOrderNumber = 0;
       function submitCakeOrder() {
       var thesisterswhatsapp = "526251007198"
       var fullName = document.getElementById('fullName').value;
@@ -303,9 +304,13 @@
       var cakeFilling = document.getElementById('cakeFilling').value;
       var jamFilling = document.getElementById('jamFilling').value;
       var comments = document.getElementById('comments').value;
-
+      
+        // Incrementar el número de orden
+        lastOrderNumber++;
+        
       var message = `
         *The Sisters Cake Order:*
+        *Order#:* ${lastOrderNumber}
         *Name:* ${fullName}
         *WhatsAPP:* +${phoneNumber}
         *Pickup Date:* ${pickupDate}
