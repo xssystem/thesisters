@@ -222,6 +222,7 @@
     var cakeSize = document.getElementById('cakeSize');
     var cakeFlavor = document.getElementById('cakeFlavor');
     var cakeFilling = document.getElementById('cakeFilling');
+    var jamFilling = document.getElementById('jamFilling');
 
     // Definir los precios para cada tamaño, sabor y relleno de pastel
     var sizePrice = {
@@ -271,9 +272,18 @@
       'Lemon': 0,
     };
 
+    var jamPrice = {
+      'Raspberry': 5,
+      'Strawberry': 5,
+      'Cherry': 5,
+      'Blueberry': 5,
+      'Blackberry': 5,
+      'Lemon': 5,
+    };
+
     var total = 0;
     if (cakeSize.value && cakeFlavor.value && cakeFilling.value) {
-      total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
+      total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value] + jamPrice[jamFilling.value];
     }
 
     var totalAmount = document.getElementById('totalAmount');
