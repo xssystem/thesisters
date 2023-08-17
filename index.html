@@ -143,15 +143,15 @@
       </select>
       <input type='text' id='phoneNumber' name='phoneNumber' style='flex: 2;' maxlength='10' required>
     </div>
-        <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
-        <input type='date' id='pickupDate' name='pickupDate' required
-               min='<?php echo date("Y-m-d"); ?>' 
-               oninput="setMinDate(this); disableSundays(this);">
-        <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
-        <input type='time' id='pickupTime' name='pickupTime' required
-               min='08:00' max='18:00'>
+    <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
+    <input type='date' id='pickupDate' name='pickupDate' required
+           min='<?php echo date("Y-m-d"); ?>' 
+           oninput="setMinDate(this); disableSundays(this);">
+    <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
+    <input type='time' id='pickupTime' name='pickupTime' required
+           min='08:00' max='18:00'>
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
-    <select id='cakeSize' name='cakeSize' required required onchange='calculateTotal()'>
+    <select id='cakeSize' name='cakeSize' required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='1/3 Box'>1/3 Box</option>
       <option value='1/2 Box'>1/2 Box</option>
@@ -166,7 +166,7 @@
       <option value='5 Box'>5 Box</option>
     </select>
     <label for='cakeFlavor'><span class='required'>*</span> Cake Flavor:</label>
-    <select id='cakeFlavor' name='cakeFlavor' required required onchange='calculateTotal()'>
+    <select id='cakeFlavor' name='cakeFlavor' required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Traditional white'>Traditional white</option>
       <option value='Devils food chocolate'>Devils food chocolate</option>
@@ -178,7 +178,7 @@
       <option value='Butter pecan'>Butter pecan</option>
     </select>
     <label for='cakeFilling'><span class='required'>*</span> Cake Filling (Pudding):</label>
-    <select id='cakeFilling' name='cakeFilling' required required onchange='calculateTotal()'>
+    <select id='cakeFilling' name='cakeFilling' required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Vanilla'>Vanilla</option>
       <option value='Chocolate'>Chocolate</option>
@@ -201,7 +201,7 @@
       <option value='Lemon'>Lemon</option>
     </select>
     <label for='jamFilling'>Cake Filling (Jam):</label>
-    <select id='jamFilling' name='jamFilling' required onchange='calculateTotal()'>
+    <select id='jamFilling' name='jamFilling' onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Raspberry Jam'>Raspberry</option>
       <option value='Strawberry Jam'>Strawberry</option>
@@ -217,79 +217,77 @@
   </form>
   
   <script>
+    function calculateTotal() {
+      var cakeSize = document.getElementById('cakeSize');
+      var cakeFlavor = document.getElementById('cakeFlavor');
+      var cakeFilling = document.getElementById('cakeFilling');
+      var jamFilling = document.getElementById('jamFilling');
 
-  function calculateTotal() {
-    var cakeSize = document.getElementById('cakeSize');
-    var cakeFlavor = document.getElementById('cakeFlavor');
-    var cakeFilling = document.getElementById('cakeFilling');
-    var jamFilling = document.getElementById('jamFilling');
+      // Definir los precios para cada tamaño, sabor y relleno de pastel
+      var sizePrice = {
+        '1/3 Box': 90,
+        '1/2 Box': 180,
+        '1 Box': 360,
+        '1-1/2 Box': 520,
+        '2 Box': 680,
+        '2-1/2 Box': 840,
+        '3 Box': 1000,
+        '3-1/2 Box': 1160,
+        '4 Box': 1320,
+        '4-1/2 Box': 1480,
+        '5 Box': 1640,
+      };
 
-    // Definir los precios para cada tamaño, sabor y relleno de pastel
-    var sizePrice = {
-      '1/3 Box': 90,
-      '1/2 Box': 180,
-      '1 Box': 360,
-      '1-1/2 Box': 520,
-      '2 Box': 680,
-      '2-1/2 Box': 840,
-      '3 Box': 1000,
-      '3-1/2 Box': 1160,
-      '4 Box': 1320,
-      '4-1/2 Box': 1480,
-      '5 Box': 1640,
-    };
+      var flavorPrice = {
+        'Traditional white': 0,
+        'Devils food chocolate': 0,
+        'Strawberry': 0,
+        'Red valvet': 0,
+        'Cherry': 0,
+        'Lemon': 0,
+        'German Chocolate': 0,
+        'Butter pecan': 0,
+      };
 
-    var flavorPrice = {
-      'Traditional white': 0,
-      'Devils food chocolate': 0,
-      'Strawberry': 0,
-      'Red valvet': 0,
-      'Cherry': 0,
-      'Lemon': 0,
-      'German Chocolate': 0,
-      'Butter pecan': 0,
-    };
+      var fillingPrice = {
+        'Vanilla': 0,
+        'Chocolate': 0,
+        'Dark chocolate': 0,
+        'White chocolate': 0,
+        'German chocolate': 10,
+        'Cream cheese': 10,
+        'Peanut butter': 0,
+        'Pecan': 10,
+        'Nutella': 10,
+        'Caramel': 0,
+        'Cajeta': 0,
+        'Capuccino': 0,
+        'Snicker': 10,
+        'Raspberry': 0,
+        'Strawberry': 0,
+        'Cherry': 0,
+        'Blueberry': 0,
+        'Blackberry': 0,
+        'Lemon': 0,
+      };
 
-    var fillingPrice = {
-      'Vanilla': 0,
-      'Chocolate': 0,
-      'Dark chocolate': 0,
-      'White chocolate': 0,
-      'German chocolate': 10,
-      'Cream cheese': 10,
-      'Peanut butter': 0,
-      'Pecan': 10,
-      'Nutella': 10,
-      'Caramel': 0,
-      'Cajeta': 0,
-      'Capuccino': 0,
-      'Snicker': 10,
-      'Raspberry': 0,
-      'Strawberry': 0,
-      'Cherry': 0,
-      'Blueberry': 0,
-      'Blackberry': 0,
-      'Lemon': 0,
-    };
+      var jamPrice = {
+        'Raspberry Jam': 5,
+        'Strawberry Jam': 5,
+        'Cherry Jam': 5,
+        'Blueberry Jam': 5,
+        'Blackberry Jam': 5,
+        'Lemon Jam': 5,
+      };
 
-    var jamPrice = {
-      'Raspberry Jam': 5,
-      'Strawberry Jam': 5,
-      'Cherry Jam': 5,
-      'Blueberry Jam': 5,
-      'Blackberry Jam': 5,
-      'Lemon Jam': 5,
-    };
+      var total = 0;
+      if (cakeSize.value && cakeFlavor.value && cakeFilling.value && jamFilling.value) {
+        total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value] + jamPrice[jamFilling.value];
+      }
 
-    var total = 0;
-    if (cakeSize.value && cakeFlavor.value && cakeFilling.value && jamFilling.value) {
-      total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value] + jamPrice[jamFilling.value];
+      var totalAmount = document.getElementById('totalAmount');
+      totalAmount.textContent = '$' + total;
     }
-
-    var totalAmount = document.getElementById('totalAmount');
-    totalAmount.textContent = '$' + total;
-  }
-
     
     function submitCakeOrder() {
       // Aquí puedes implementar la lógica para procesar el formulario
