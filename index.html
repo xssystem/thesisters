@@ -153,6 +153,7 @@
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
     <select id='cakeSize' name='cakeSize' required required onchange='calculateTotal()'>
       <option value=''></option>
+      <option value='1/3 Box'>1/3 Box</option>
       <option value='1/2 Box'>1/2 Box</option>
       <option value='1 Box'>1 Box</option>
       <option value='1-1/2 Box'>1-1/2 Box</option>
@@ -183,6 +184,7 @@
       <option value='Chocolate'>Chocolate</option>
       <option value='Dark chocolate'>Dark chocolate</option>
       <option value='White chocolate'>White chocolate</option>
+      <option value='German chocolate'>German chocolate</option>
       <option value='Cream cheese'>Cream Cheese</option>
       <option value='Peanut butter'>Peanut butter</option>
       <option value='Pecan'>Pecan</option>
@@ -223,22 +225,50 @@
 
     // Definir los precios para cada tamaño, sabor y relleno de pastel
     var sizePrice = {
+      '1/3 Box': 90,
       '1/2 Box': 180,
       '1 Box': 360,
-      '1-1/2 Box': 540,
-      '2 Box': 720,
+      '1-1/2 Box': 520,
+      '2 Box': 680,
+      '2-1/2 Box': 840,
+      '3 Box': 1000,
+      '3-1/2 Box': 1160,
+      '4 Box': 1320,
+      '4-1/2 Box': 1480,
+      '5 Box': 1640,
     };
 
     var flavorPrice = {
-      'Traditional white': 5,
-      'Devils food chocolate': 6,
-      // ... más opciones ...
+      'Traditional white': 0,
+      'Devils food chocolate': 0,
+      'Strawberry': 0,
+      'Red valvet': 0,
+      'Cherry': 0,
+      'Lemon': 0,
+      'German Chocolate': 0,
+      'Butter pecan': 0,
     };
 
     var fillingPrice = {
-      'Vanilla': 2,
-      'Chocolate': 2,
-      // ... más opciones ...
+      'Vanilla': 0,
+      'Chocolate': 0,
+      'Dark chocolate': 0,
+      'White chocolate': 0,
+      'German chocolate': 10,
+      'Cream cheese': 10,
+      'Peanut butter': 0,
+      'Pecan': 10,
+      'Nutella': 10,
+      'Caramel': 0,
+      'Cajeta': 0,
+      'Capuccino': 0,
+      'Snicker': 10,
+      'Raspberry': 0,
+      'Strawberry': 0,
+      'Cherry': 0,
+      'Blueberry': 0,
+      'Blackberry': 0,
+      'Lemon': 0,
     };
 
     var total = 0;
