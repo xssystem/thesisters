@@ -362,12 +362,16 @@
 
     function disableSundays(input) {
       var selectedDate = new Date(input.value);
+      var currentDate = new Date();
+
       if (selectedDate.getDay() === 0) {
         input.setCustomValidity('Please choose a different day. Sundays are not available.');
+      } else if (selectedDate < currentDate) {
+        input.setCustomValidity('Please choose a future date.');
       } else {
         input.setCustomValidity('');
-      }
-    }
+  }
+}
   </script>
 </body>
 </html>
