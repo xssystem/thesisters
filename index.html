@@ -135,7 +135,7 @@
     <br><br>
     <label for='fullName'><span class='required'>*</span> Full Name:</label>
     <input type='text' id='fullName' name='fullName' required>
-    <label for='phoneNumber'><span class='required'>*</span> Phone Number:</label>
+    <label for='phoneNumber'><span class='required'>*</span> WhatsAPP or Phone Number:</label>
     <div style='display: flex;'>
       <select id='phoneCountry' name='phoneCountry' style='flex: 1; margin-right: 10px;' required>
         <option value='+1'>USA (+1)</option>
@@ -280,9 +280,9 @@
         'Lemon Jam': 5,
       };
 
-      var total = 0;
-      if (cakeSize.value && cakeFlavor.value && cakeFilling.value && jamFilling.value) {
-        total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value] + jamPrice[jamFilling.value];
+      var total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
+      if (jamFilling.value) {
+        total += jamPrice[jamFilling.value];
       }
 
       var totalAmount = document.getElementById('totalAmount');
