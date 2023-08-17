@@ -296,6 +296,7 @@
       function submitCakeOrder() {
       var thesisterswhatsapp = "526251007198"
       var fullName = document.getElementById('fullName').value;
+      var phoneCountry = document.getElementById('phoneCountry').value;
       var phoneNumber = document.getElementById('phoneNumber').value;
       var pickupDate = document.getElementById('pickupDate').value;
       var pickupTime = document.getElementById('pickupTime').value;
@@ -308,7 +309,7 @@
       var message = `
         *The Sisters Cake Order:*
         *Name:* ${fullName}
-        *WhatsAPP:* +${phoneNumber}
+        *WhatsAPP:* +${phoneCountry}${phoneNumber}
         *Pickup Date:* ${pickupDate}
         *Pickup Time:* ${pickupTime}
         *Cake Size:* ${cakeSize}
