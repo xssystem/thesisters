@@ -145,7 +145,6 @@
     </div>
 <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
 <input type='date' id='pickupDate' name='pickupDate' required
-       min='<?php echo date("Y-m-d"); ?>' 
        oninput="setMinDate(this); disableSundays(this);">
     <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
     <select id='pickupTime' name='pickupTime' required>
