@@ -355,14 +355,23 @@
     }
 
     function disableSundays(input) {
+      var currentDate = new Date();
       var selectedDate = new Date(input.value);
-      var dayOfWeek = selectedDate.getDay();
 
-      if (dayOfWeek === 0 || selectedDate < new Date()) {
-        input.setCustomValidity('Please choose a valid future date (not a Sunday).');
-      } else {
-        input.setCustomValidity('');
+      // Comparamos las fechas sin la información de tiempo para que solo consideremos el día
+      var currentDateWithoutTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+      var selectedDateWithoutTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
+
+      if (selectedDateWithoutTime >= currentDateWithoutTime) {
+        var dayOfWeek = selectedDate.getDay();
+
+        if (dayOfWeek === 0) {
+          input.setCustomValidity('Please choose a different day. Sundays are not available.');
+          return;
+        }
       }
+
+      input.setCustomValidity('');
     }
 
     function setMinDate(input) {
