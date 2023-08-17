@@ -143,18 +143,14 @@
       </select>
       <input type='text' id='phoneNumber' name='phoneNumber' style='flex: 2;' maxlength='10' required>
     </div>
-    <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
-    <select id='pickupDate' name='pickupDate' required>
-      <option value='2023-08-17'>August 17, 2023</option>
-      <option value='2023-08-18'>August 18, 2023</option>
-      <!-- Otras opciones de fechas -->
-    </select>
-    <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
-    <select id='pickupTime' name='pickupTime' required>
-      <option value='08:00'>08:00 AM</option>
-      <option value='09:00'>09:00 AM</option>
-      <!-- Otras opciones de horas -->
-    </select>
+<label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
+<input type='date' id='pickupDate' name='pickupDate' required
+       min='<?php echo date("Y-m-d"); ?>' 
+       oninput="setMinDate(this); disableSundays(this);">
+
+<label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
+<input type='time' id='pickupTime' name='pickupTime' required
+       min='08:00' max='18:00'>
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
     <select id='cakeSize' name='cakeSize' required onchange='calculateTotal()'>
       <option value=''></option>
