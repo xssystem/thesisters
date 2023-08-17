@@ -354,23 +354,24 @@
       window.open(whatsappLink);
     }
 
+    function disableSundays(input) {
+      var selectedDate = new Date(input.value);
+      var dayOfWeek = selectedDate.getDay();
+
+      if (dayOfWeek === 0) {
+        input.setCustomValidity('Please choose a different day. Sundays are not available.');
+      } else {
+        input.setCustomValidity('');
+      }
+    }
+
     function setMinDate(input) {
       var currentDate = new Date().toISOString().slice(0, 10);
       input.min = currentDate;
+
+      // Al establecer la fecha mínima, también verifica si es domingo y, si es así, deshabilita ese día.
+      disableSundays(input);
     }
-
-    function disableSundays(input) {
-      var selectedDate = new Date(input.value);
-      var currentDate = new Date();
-
-      if (selectedDate.getDay() === 0) {
-        input.setCustomValidity('Please choose a different day. Sundays are not available.');
-      } else if (selectedDate < currentDate) {
-        input.setCustomValidity('Please choose a future date.');
-      } else {
-        input.setCustomValidity('');
-  }
-}
   </script>
 </body>
 </html>
