@@ -137,19 +137,13 @@
       </select>
       <input type='text' id='phoneNumber' name='phoneNumber' style='flex: 2;' maxlength='10' required>
     </div>
-    <div style='display: flex;'>
-      <div style='flex: 1; margin-right: 10px;'>
         <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
         <input type='date' id='pickupDate' name='pickupDate' required
                min='<?php echo date("Y-m-d"); ?>' 
                oninput="setMinDate(this); disableSundays(this);">
-      </div>
-      <div style='flex: 1;'>
         <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
         <input type='time' id='pickupTime' name='pickupTime' required
                min='08:00' max='18:00'>
-      </div>
-    </div>
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
     <select id='cakeSize' name='cakeSize' required>
       <option value=''></option>
