@@ -292,11 +292,31 @@
       totalAmount.textContent = '$' + total;
     }
     
-    function submitCakeOrder() {
-      // Aquí puedes implementar la lógica para procesar el formulario
-      // y enviar los datos a la plataforma que estés utilizando.
-      // Puedes usar AJAX, Fetch API u otros métodos según tus necesidades.
-      alert('Form submitted!'); // Esto es solo un ejemplo
+      function submitCakeOrder() {
+      var fullName = document.getElementById('fullName').value;
+      var phoneNumber = document.getElementById('phoneNumber').value;
+      var cakeSize = document.getElementById('cakeSize').value;
+      var cakeFlavor = document.getElementById('cakeFlavor').value;
+      var cakeFilling = document.getElementById('cakeFilling').value;
+      var jamFilling = document.getElementById('jamFilling').value;
+      var comments = document.getElementById('comments').value;
+
+      var message = `
+        Pedido de Pastel:
+        Nombre: ${fullName}
+        Teléfono: ${phoneNumber}
+        Tamaño del Pastel: ${cakeSize}
+        Sabor del Pastel: ${cakeFlavor}
+        Relleno de Pudding: ${cakeFilling}
+        Relleno de Jam: ${jamFilling}
+        Comentarios: ${comments}
+      `;
+
+      var encodedMessage = encodeURIComponent(message);
+      var whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+      // Abrir el enlace de WhatsApp
+      window.open(whatsappLink);
     }
 
     function setMinDate(input) {
