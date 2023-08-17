@@ -320,39 +320,45 @@
       totalAmount.textContent = '$' + total;
     }
       
-      var lastOrderNumber = 0;
-      function submitCakeOrder() {
-      var thesisterswhatsapp = "526251007198"
-      var fullName = document.getElementById('fullName').value;
-      var phoneCountry = document.getElementById('phoneCountry').value;
-      var phoneNumber = document.getElementById('phoneNumber').value;
-      var pickupDate = document.getElementById('pickupDate').value;
-      var pickupTime = document.getElementById('pickupTime').value;
-      var cakeSize = document.getElementById('cakeSize').value;
-      var cakeFlavor = document.getElementById('cakeFlavor').value;
-      var cakeFilling = document.getElementById('cakeFilling').value;
-      var jamFilling = document.getElementById('jamFilling').value;
-      var comments = document.getElementById('comments').value;
-        
-      var message = `
-        *The Sisters Cake Order:*
-        *Name:* ${fullName}
-        *WhatsAPP:* ${phoneCountry}${phoneNumber}
-        *Pickup Date:* ${pickupDate}
-        *Pickup Time:* ${pickupTime}
-        *Cake Size:* ${cakeSize}
-        *Cake Flavor:* ${cakeFlavor}
-        *Cake Filling:* ${cakeFilling}
-        *Jam Filling:* ${jamFilling}
-        *Comments:* ${comments}
-      `;
+    function submitCakeOrder() {
+        var fullName = document.getElementById('fullName').value;
+        var phoneCountry = document.getElementById('phoneCountry').value;
+        var phoneNumber = document.getElementById('phoneNumber').value;
+        var pickupDate = document.getElementById('pickupDate').value;
+        var pickupTime = document.getElementById('pickupTime').value;
+        var cakeSize = document.getElementById('cakeSize').value;
+        var cakeFlavor = document.getElementById('cakeFlavor').value;
+        var cakeFilling = document.getElementById('cakeFilling').value;
 
-      var encodedMessage = encodeURIComponent(message);
-      var whatsappLink = `https://wa.me/${thesisterswhatsapp}?text=${encodedMessage}`;
+        // Verificar campos obligatorios
+        if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeFlavor || !cakeFilling) {
+            alert('Please fill in all required fields.');
+            return;
+        }
 
-      // Abrir el enlace de WhatsApp
-      window.open(whatsappLink);
-      }
+        var jamFilling = document.getElementById('jamFilling').value;
+        var comments = document.getElementById('comments').value;
+
+        var message = `
+            *The Sisters Cake Order:*
+            *Name:* ${fullName}
+            *WhatsAPP:* ${phoneCountry}${phoneNumber}
+            *Pickup Date:* ${pickupDate}
+            *Pickup Time:* ${pickupTime}
+            *Cake Size:* ${cakeSize}
+            *Cake Flavor:* ${cakeFlavor}
+            *Cake Filling:* ${cakeFilling}
+            *Jam Filling:* ${jamFilling}
+            *Comments:* ${comments}
+        `;
+
+        var encodedMessage = encodeURIComponent(message);
+        var thesisterswhatsapp = "526258426581"
+        var whatsappLink = `https://wa.me/${thesisterswhatsapp}?text=${encodedMessage}`;
+
+        // Abrir el enlace de WhatsApp
+        window.open(whatsappLink);
+    }
   
     function setMinDate() {
       var currentDate = new Date();
