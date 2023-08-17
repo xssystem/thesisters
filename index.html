@@ -148,9 +148,6 @@
     <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
     <select id='pickupTime' name='pickupTime' required>
       <option value=''></option>
-      <option value='08:00'>08:00 AM</option>
-      <option value='08:30'>08:30 AM</option>
-      <option value='09:00'>09:00 AM</option>
       <option value='09:30'>09:30 AM</option>
       <option value='10:00'>10:00 AM</option>
       <option value='10:30'>10:30 AM</option>
@@ -196,6 +193,12 @@
       <option value='Lemon'>Lemon</option>
       <option value='German Chocolate'>German Chocolate</option>
       <option value='Butter pecan'>Butter pecan</option>
+      <option value='Chocolate Oreo'>Chocolate Oreo</option>
+      <option value='Vanilla raspberry'>Vanilla raspberry</option>
+      <option value='Vanilla blueberry'>Vanilla blueberry</option>
+      <option value='Vanilla & Chocolate'>Vanilla & Chocolate</option>
+      <option value='Vanilla & Butter pecan'>Vanilla & Butter pecan</option>
+      <option value='Vanilla Oreo'>Vanilla Oreo</option>
     </select>
     <label for='cakeFilling'><span class='required'>*</span> Cake Filling (Pudding):</label>
     <select id='cakeFilling' name='cakeFilling' required onchange='calculateTotal()'>
@@ -213,22 +216,16 @@
       <option value='Cajeta'>Cajeta</option>
       <option value='Capuccino'>Capuccino</option>
       <option value='Snicker'>Snicker</option>
+    </select>
+    <label for='jamFilling'>Cake Filling (Jam):</label>
+    <select id='jamFilling' name='jamFilling' onchange='calculateTotal()'>
+      <option value=''></option>
       <option value='Raspberry'>Raspberry</option>
       <option value='Strawberry'>Strawberry</option>
       <option value='Cherry'>Cherry</option>
       <option value='Blueberry'>Blueberry</option>
       <option value='Blackberry'>Blackberry</option>
       <option value='Lemon'>Lemon</option>
-    </select>
-    <label for='jamFilling'>Cake Filling (Jam):</label>
-    <select id='jamFilling' name='jamFilling' onchange='calculateTotal()'>
-      <option value=''></option>
-      <option value='Raspberry Jam'>Raspberry</option>
-      <option value='Strawberry Jam'>Strawberry</option>
-      <option value='Cherry Jam'>Cherry</option>
-      <option value='Blueberry Jam'>Blueberry</option>
-      <option value='Blackberry Jam'>Blackberry</option>
-      <option value='Lemon Jam'>Lemon</option>
     </select>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
@@ -275,6 +272,12 @@
         'Lemon': 0,
         'German Chocolate': 0,
         'Butter pecan': 0,
+        'Vanilla raspberry': 0,
+        'Vanilla blueberry': 0,
+        'Vanilla & Chocolate': 0,
+        'Vanilla & Butter pecan': 0,
+        'Vanilla Oreo': 0,
+        'Chocolate Oreo': 0,    
       };
 
       var fillingPrice = {
@@ -291,21 +294,15 @@
         'Cajeta': 0,
         'Capuccino': 0,
         'Snicker': 10,
-        'Raspberry': 0,
-        'Strawberry': 0,
-        'Cherry': 0,
-        'Blueberry': 0,
-        'Blackberry': 0,
-        'Lemon': 0,
       };
 
       var jamPrice = {
-        'Raspberry Jam': 5,
-        'Strawberry Jam': 5,
-        'Cherry Jam': 5,
-        'Blueberry Jam': 5,
-        'Blackberry Jam': 5,
-        'Lemon Jam': 5,
+        'Raspberry': 5,
+        'Strawberry': 5,
+        'Cherry': 5,
+        'Blueberry': 5,
+        'Blackberry': 5,
+        'Lemon': 5,
       };
 
       var total = 0;
