@@ -144,8 +144,7 @@
       <input type='text' id='phoneNumber' name='phoneNumber' style='flex: 2;' maxlength='10' required>
     </div>
 <label for='pickupDate'><span class='required'>*</span> Pickup Date:</label>
-<input type='date' id='pickupDate' name='pickupDate' required
-       oninput="setMinDate(this); disableSundays(this);">
+<input type='date' id='pickupDate' name='pickupDate' required min=''>
     <label for='pickupTime'><span class='required'>*</span> Pickup Time:</label>
     <select id='pickupTime' name='pickupTime' required>
       <option value='08:00'>08:00 AM</option>
@@ -352,35 +351,16 @@
 
       // Abrir el enlace de WhatsApp
       window.open(whatsappLink);
-    }
-
-    function disableSundays(input) {
-      var currentDate = new Date();
-      var selectedDate = new Date(input.value);
-
-      // Comparamos las fechas sin la información de tiempo para que solo consideremos el día
-      var currentDateWithoutTime = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
-      var selectedDateWithoutTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
-
-      if (selectedDateWithoutTime >= currentDateWithoutTime) {
-        var dayOfWeek = selectedDate.getDay();
-
-        if (dayOfWeek === 0) {
-          input.setCustomValidity('Please choose a different day. Sundays are not available.');
-          return;
-        }
+      }
+  
+  function setMinDate() {
+     var currentDate = new Date().toISOString().split("T")[0];
+        document.getElementById('pickupDate').min = currentDate;
       }
 
-      input.setCustomValidity('');
-    }
-
-    function setMinDate(input) {
-      var currentDate = new Date().toISOString().slice(0, 10);
-      input.min = currentDate;
-
-      // Al establecer la fecha mínima, también verifica si es domingo y, si es así, deshabilita ese día.
-      disableSundays(input);
-    }
+      window.onload = function() {
+      setMinDate();  
+      };
   </script>
 </body>
 </html>
