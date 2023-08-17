@@ -280,9 +280,12 @@
         'Lemon Jam': 5,
       };
 
-      var total = 0 + sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
-      if (jamFilling.value) {
-        total += jamPrice[jamFilling.value];
+      var total = 0;
+      if (cakeSize.value && cakeFlavor.value && cakeFilling.value) {
+        total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
+        if (jamFilling.value) {
+          total += jamPrice[jamFilling.value];
+        }
       }
 
       var totalAmount = document.getElementById('totalAmount');
