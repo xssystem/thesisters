@@ -358,8 +358,8 @@
       var selectedDate = new Date(input.value);
       var dayOfWeek = selectedDate.getDay();
 
-      if (dayOfWeek === 0) {
-        input.setCustomValidity('Please choose a different day. Sundays are not available.');
+      if (dayOfWeek === 0 || selectedDate < new Date()) {
+        input.setCustomValidity('Please choose a valid future date (not a Sunday).');
       } else {
         input.setCustomValidity('');
       }
