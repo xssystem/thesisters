@@ -303,14 +303,14 @@
       var comments = document.getElementById('comments').value;
 
       var message = `
-        Pedido de Pastel:
-        Nombre: ${fullName}
-        Teléfono: ${phoneNumber}
-        Tamaño del Pastel: ${cakeSize}
-        Sabor del Pastel: ${cakeFlavor}
-        Relleno de Pudding: ${cakeFilling}
-        Relleno de Jam: ${jamFilling}
-        Comentarios: ${comments}
+        *The Sisters Cake Order:*
+        *Name:* ${fullName}
+        *WhatsAPP:* +${phoneNumber}
+        *Cake Size:* ${cakeSize}
+        *Cake Flavor:* ${cakeFlavor}
+        *Cake Filling:* ${cakeFilling}
+        *Jam Filling:* ${jamFilling}
+        *Comments:* ${comments}
       `;
 
       var encodedMessage = encodeURIComponent(message);
