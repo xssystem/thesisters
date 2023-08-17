@@ -1,20 +1,3 @@
-<?php
-$orderNumberFile = 'order_number.txt';
-
-// Obtener el último número de orden del archivo de texto
-if (file_exists($orderNumberFile)) {
-    $lastOrderNumber = intval(file_get_contents($orderNumberFile));
-} else {
-    $lastOrderNumber = 0;
-}
-
-// Incrementar el número de orden
-$lastOrderNumber++;
-
-// Guardar el nuevo número de orden en el archivo de texto
-file_put_contents($orderNumberFile, $lastOrderNumber);
-?>
-
 <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -324,7 +307,6 @@ file_put_contents($orderNumberFile, $lastOrderNumber);
         
       var message = `
         *The Sisters Cake Order:*
-        *Order#:* ${lastOrderNumber}
         *Name:* ${fullName}
         *WhatsAPP:* +${phoneNumber}
         *Pickup Date:* ${pickupDate}
