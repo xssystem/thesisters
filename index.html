@@ -213,7 +213,7 @@
       <option value='Vanilla & Butter pecan'>Vanilla & Butter pecan</option>
       <option value='Vanilla Oreo'>Vanilla Oreo</option>
     </select>
-    <label for='cakeFilling'><span class='required'>*</span> Cake Filling (Pudding):</label>
+    <label for='cakeFilling'><span class='required'>*</span> Cake Filling Pudding:</label>
     <select id='cakeFilling' name='cakeFilling' required onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Vanilla'>Vanilla</option>
@@ -230,7 +230,7 @@
       <option value='Capuccino'>Capuccino</option>
       <option value='Snicker'>Snicker</option>
     </select>
-    <label for='jamFilling'>Cake Filling (Jam):</label>
+    <label for='jamFilling'>Cake Filling Jam (Optional):</label>
     <select id='jamFilling' name='jamFilling' onchange='calculateTotal()'>
       <option value=''></option>
       <option value='Raspberry'>Raspberry</option>
@@ -242,7 +242,10 @@
     </select>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
-    <div class='cakedesign'>Please send us a photo of the design you have in mind for your cake.</div>
+    <div class='cakedesign'>
+      <p>*Please send us a photo of the design you have in mind for your cake.</p>
+      <p>*Please note that the price may potentially increase depending on the cake design.</p>
+    </div>
     <br/>
     <div class='total'>Estimated Total: <span id='totalAmount'>$0</span></div>
     <br/>
