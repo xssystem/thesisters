@@ -375,12 +375,14 @@
         var jamFilling = document.getElementById('jamFilling').value;
         var comments = document.getElementById('comments').value;
 
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var formattedDate = new Date(pickupDate).toLocaleDateString('en-US', options);
+      
         var message = `
             *The Sisters - Cake Order:*
             *Name:* ${fullName}
             *WhatsAPP:* ${phoneCountry}${phoneNumber}
-            *Pickup Date:* ${pickupDate}
-            *Pickup Time:* ${pickupTime}
+            *Pickup Date:* ${formattedDate} at ${pickupTime}
             *Cake Size:* ${cakeSize}
             *Cake Flavor:* ${cakeFlavor}
             *Cake Filling:* ${cakeFilling}
