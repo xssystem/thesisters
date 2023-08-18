@@ -365,6 +365,7 @@
         var cakeSize = document.getElementById('cakeSize').value;
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
+        var totalAmount = document.getElementById('totalAmount').textContent;
 
         // Verificar campos obligatorios
         if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeFlavor || !cakeFilling) {
@@ -388,6 +389,7 @@
     *Cake Filling:* ${cakeFilling}
     *Jam Filling:* ${jamFilling}
     *Comments:* ${comments}
+    *Estimated Total* ${totalAmount}
         `;
 
         var encodedMessage = encodeURIComponent(message);
