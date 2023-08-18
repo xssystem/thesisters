@@ -376,7 +376,7 @@
         var comments = document.getElementById('comments').value;
 
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        var formattedDate = new Date(pickupDate).toLocaleDateString('en-US', options);
+        var formattedDate = new Date(pickupDate).toLocaleDateString('en-US', options).replace(',', '');
       
         var message = `
             *The Sisters - Cake Order:*
