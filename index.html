@@ -162,6 +162,16 @@
     display: flex;
     flex-direction: column;
   }
+ table {
+    width: 100%; /* Ajusta la tabla al ancho del formulario */
+    max-width: 400px; /* Establece un ancho máximo para la tabla */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: slide-up 0.5s ease-out;
+  }
 </style>
 </head>
 <body>
@@ -276,6 +286,7 @@
       <option value='Whipped Cream'>Whipped Cream</option>
       <option value='Nutella'>Nutella</option>
     </select>
+    <label for='cakeelements'>Would you like any of the following components included? Choose as many as you wish.</label>
 <table>
   <tr>
     <td>
@@ -347,6 +358,35 @@
       <label for="roll">Roll</label>
     </td>
   </tr>
+  <tr>
+    <td>
+      <input type="checkbox" id="strawberries" name="topping" value="Strawberries">
+    </td>
+    <td>
+      <label for="strawberries">Strawberries</label>
+    </td>
+    <td>
+      <input type="checkbox" id="raspberries" name="topping" value="Raspberries">
+    </td>
+    <td>
+      <label for="raspberries">Raspberries</label>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" id="blueberries" name="topping" value="Blueberries">
+    </td>
+    <td>
+      <label for="blueberries">Blueberries</label>
+    </td>
+    <td>
+      <input type="checkbox" id="blackberries" name="topping" value="Blackberries">
+    </td>
+    <td>
+      <label for="blackberries">Blackberries</label>
+    </td>
+  </tr>
+</table>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
