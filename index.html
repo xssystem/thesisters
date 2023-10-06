@@ -529,7 +529,7 @@ function calculateTotal() {
     'Raspberries': 0,
     'Blueberries': 0,
     'Blackberries': 0,
-};
+  };
 
   var checkboxes = document.getElementsByName('topping');
   var checkboxTotal = 0;
@@ -553,6 +553,10 @@ function calculateTotal() {
   var frostingCost = frostingPrice[frostingCostKey] || 0;
 
   var total = sizeCost + flavorCost + fillingCost + jamCost + frostingCost + checkboxTotal;
+
+  if (isNaN(total)) {
+    total = 0.00; // Establece el total en 0.00 si no se puede calcular
+  }
 
   var totalAmount = document.getElementById('totalAmount');
   totalAmount.textContent = '$' + total.toFixed(2);
