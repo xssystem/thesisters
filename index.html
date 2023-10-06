@@ -526,34 +526,30 @@ function calculateTotal() {
     'Kinder': 0,
     'Pretzels': 0,
     'Strawberries': 0,
-    'Oreo': 0,
-    'Marshmallows': 0,
-    'Chips Ahoy': 0,
-    'Caramel': 0,
-    'Cajeta': 0,
-    'Brownie': 0,
-    'Churros': 0,
+    'Raspberries': 0,
+    'Blueberries': 0,
+    'Blackberries': 0,
   };
 
-  // Calcular el costo total del pastel basado en las selecciones del usuario
-  var totalCost = 0;
+  var checkboxes = document.getElementsByName('topping');
+  var checkboxTotal = 0;
 
-  totalCost += sizePrice[cakeSize];
-  totalCost += flavorPrice[cakeFlavor];
-  totalCost += fillingPrice[cakeFilling];
-  totalCost += jamPrice[jamFilling];
-  totalCost += frostingPrice[cakeSize + '|' + cakeFrosting];
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      var toppingKey = cakeSize + '|' + checkboxes[i].value;
+      checkboxTotal += checkboxToppingPrices[toppingKey] || 0;
+    }
+  }
 
-  // Calcular el costo de los checkboxes seleccionados
-  var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-  checkboxes.forEach(function (checkbox) {
-    var topping = checkbox.value;
-    totalCost += checkboxToppingPrices[cakeSize + '|' + topping];
-  });
+  var total =
+    sizePrice[cakeSize] +
+    flavorPrice[cakeFlavor] +
+    fillingPrice[cakeFilling] +
+    jamPrice[jamFilling] +
+    frostingPrice[cakeSize + '|' + cakeFrosting] +
+    checkboxTotal;
 
-  // Mostrar el costo total en la página
-  var totalElement = document.getElementById('totalCost');
-  totalElement.textContent = 'Total Cost: $' + totalCost;
+  document.getElementById('totalPrice').innerText = '$' + total;
 }
       
     function submitCakeOrder() {
