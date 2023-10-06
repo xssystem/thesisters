@@ -518,29 +518,31 @@ function calculateTotal() {
     '5 Box|Chocolate Drip': 100,
 };
 
-  // Verifica si se seleccionó un tamaño y un frosting
-  if (cakeSize && cakeFrosting) {
-    var frostingPriceKey = cakeSize + '|' + cakeFrosting;
-    var frostingCost = frostingPrice[frostingPriceKey];
+  var checkboxes = document.getElementsByName('topping');
+  var checkboxTotal = 0;
 
-    // Asegúrate de que se haya encontrado un precio para el tamaño y el frosting seleccionados
-    if (frostingCost !== undefined) {
-      var sizeCost = sizePrice[cakeSize];
-      var flavorCost = flavorPrice[cakeFlavor];
-      var fillingCost = fillingPrice[cakeFilling];
-      var jamCost = jamPrice[jamFilling] || 0;
-
-      var total = sizeCost + flavorCost + fillingCost + jamCost + frostingCost;
-
-      var totalAmount = document.getElementById('totalAmount');
-      totalAmount.textContent = '$' + total;
-      return;
+  for (var i = 0; i < checkboxes.length; i++) {
+    var checkbox = checkboxes[i];
+    if (checkbox.checked) {
+      var checkboxName = checkbox.value;
+      var checkboxPriceKey = cakeSize + '|' + checkboxName;
+      var checkboxPrice = checkboxToppingPrices[checkboxPriceKey] || 0;
+      checkboxTotal += checkboxPrice;
     }
   }
 
-  // Si no se seleccionó un tamaño o frosting válido, muestra un mensaje de error
+  // Calcula el costo total sumando todos los elementos
+  var sizeCost = sizePrice[cakeSize];
+  var flavorCost = flavorPrice[cakeFlavor];
+  var fillingCost = fillingPrice[cakeFilling];
+  var jamCost = jamPrice[jamFilling] || 0;
+  var frostingCostKey = cakeSize + '|' + cakeFrosting;
+  var frostingCost = frostingPrice[frostingCostKey] || 0;
+
+  var total = sizeCost + flavorCost + fillingCost + jamCost + frostingCost + checkboxTotal;
+
   var totalAmount = document.getElementById('totalAmount');
-  totalAmount.textContent = '0.00';
+  totalAmount.textContent = '$' + total.toFixed(2);
 }
       
     function submitCakeOrder() {
