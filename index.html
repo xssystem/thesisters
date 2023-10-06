@@ -552,11 +552,11 @@ function calculateTotal() {
         var cakeSize = document.getElementById('cakeSize').value;
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
-        var cakeFrosting = document.getElementId('cakeFrosting').value
+        var cakeFrosting = document.getElementById('cakeFrosting').value;
         var totalAmount = document.getElementById('totalAmount').textContent;
 
         // Verificar campos obligatorios
-        if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeFlavor || !cakeFilling) {
+        if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeFlavor || !cakeFilling || !cakeFrosting) {
             alert('Make sure to fill out all the required fields to place your cake order! Just like mixing the perfect ingredients for a scrumptious treat, each field adds a touch of flavor to your cake masterpiece. Lets infuse every box withh the magic of baking!');
             return;
         }
