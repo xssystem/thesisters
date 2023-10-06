@@ -148,8 +148,15 @@
   }
   .checkbox-group {
     display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr); /* Cambiado a dos columnas */
+    gap: 5px; /* Espaciado reducido */
+  }
+  .checkbox-group label {
+    font-size: 18px; /* Tamaño de texto aumentado */
+  }
+  .checkbox-group input[type="checkbox"] {
+    width: 20px; /* Ancho de casilla aumentado */
+    height: 20px; /* Altura de casilla aumentada */
   }
   .checkbox-column {
     display: flex;
