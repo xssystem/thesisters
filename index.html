@@ -146,6 +146,17 @@
   button:hover {
     background-color: #6E4D41;
   }
+    .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .checkbox-column {
+    display: flex;
+    flex-direction: column;
+  }
 </style>
 </head>
 <body>
@@ -260,6 +271,21 @@
       <option value='Whipped Cream'>Whipped Cream</option>
       <option value='Nutella'>Nutella</option>
     </select>
+    <div class="checkbox-group">
+      <label>Would you like any of the following components included? Choose as many as you wish.</label>
+      <div class="checkbox-column">
+        <input type="checkbox" id="chocolateDrip" name="topping" value="Chocolate Drip">
+        <label for="chocolateChips">Chocolate Drip</label>
+      </div>
+      <div class="checkbox-column">
+        <input type="checkbox" id="macarons" name="topping" value="macarons">
+        <label for="macarons">Macarons</label>
+      </div>
+      <div class="checkbox-column">
+        <input type="checkbox" id="nuts" name="topping" value="miniDounuts">
+        <label for="miniDounuts">Mini Dounuts</label>
+      </div>
+    </div>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
