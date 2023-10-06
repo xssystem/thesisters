@@ -209,6 +209,12 @@
       <option value='4-1/2 Box'>4-1/2 Box | 40-54 Serves</option>
       <option value='5 Box'>5 Box | 45-60 Serves</option>
     </select>
+        <label for='cakeFrosting'><span class='required'>*</span> Cake Frosting:</label>
+    <select id='cakeFrosting' name='cakeFrosting' required onchange='calculateTotal()'>
+      <option value=''></option>
+      <option value='Whipped Cream'>Whipped Cream</option>
+      <option value='Nutella'>Nutella</option>
+    </select>
     <label for='cakeFlavor'><span class='required'>*</span> Cake Flavor:</label>
     <select id='cakeFlavor' name='cakeFlavor' required onchange='calculateTotal()'>
       <option value=''></option>
