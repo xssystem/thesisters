@@ -209,12 +209,6 @@
       <option value='4-1/2 Box'>4-1/2 Box | 40-54 Serves</option>
       <option value='5 Box'>5 Box | 45-60 Serves</option>
     </select>
-        <label for='cakeFrosting'><span class='required'>*</span> Cake Frosting:</label>
-    <select id='cakeFrosting' name='cakeFrosting' required onchange='calculateTotal()'>
-      <option value=''></option>
-      <option value='Whipped Cream'>Whipped Cream</option>
-      <option value='Nutella'>Nutella</option>
-    </select>
     <label for='cakeFlavor'><span class='required'>*</span> Cake Flavor:</label>
     <select id='cakeFlavor' name='cakeFlavor' required onchange='calculateTotal()'>
       <option value=''></option>
@@ -260,6 +254,12 @@
       <option value='Blackberry'>Blackberry</option>
       <option value='Lemon'>Lemon</option>
     </select>
+    <label for='cakeFrosting'><span class='required'>*</span> Cake Frosting:</label>
+    <select id='cakeFrosting' name='cakeFrosting' required onchange='calculateTotal()'>
+      <option value=''></option>
+      <option value='Whipped Cream'>Whipped Cream</option>
+      <option value='Nutella'>Nutella</option>
+    </select>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
@@ -287,80 +287,93 @@
       input.value = words.join(' ');
     }
     
-    function calculateTotal() {
-      var cakeSize = document.getElementById('cakeSize');
-      var cakeFlavor = document.getElementById('cakeFlavor');
-      var cakeFilling = document.getElementById('cakeFilling');
-      var jamFilling = document.getElementById('jamFilling');
+function calculateTotal() {
+  var cakeSize = document.getElementById('cakeSize');
+  var cakeFlavor = document.getElementById('cakeFlavor');
+  var cakeFilling = document.getElementById('cakeFilling');
+  var jamFilling = document.getElementById('jamFilling');
 
-      // Definir los precios para cada tamaño, sabor y relleno de pastel
-      var sizePrice = {
-        '1/3 Box': 105,
-        '1/2 Box': 205,
-        '1 Box': 410,
-        '1-1/2 Box': 615,
-        '2 Box': 820,
-        '2-1/2 Box': 1025,
-        '3 Box': 1230,
-        '3-1/2 Box': 1435,
-        '4 Box': 1640,
-        '4-1/2 Box': 1845,
-        '5 Box': 2050,
-      };
+  // Definir los precios para cada tamaño, sabor y relleno de pastel
+  var sizePrice = {
+    '1/3 Box': 105,
+    '1/2 Box': 205,
+    '1 Box': 410,
+    '1-1/2 Box': 615,
+    '2 Box': 820,
+    '2-1/2 Box': 1025,
+    '3 Box': 1230,
+    '3-1/2 Box': 1435,
+    '4 Box': 1640,
+    '4-1/2 Box': 1845,
+    '5 Box': 2050,
+  };
 
-      var flavorPrice = {
-        'Traditional white': 0,
-        'Devils food chocolate': 0,
-        'Strawberry': 0,
-        'Red valvet': 0,
-        'Cherry': 0,
-        'Lemon': 0,
-        'German Chocolate': 0,
-        'Butter pecan': 0,
-        'Vanilla raspberry': 10,
-        'Vanilla blueberry': 10,
-        'Vanilla & Chocolate': 0,
-        'Vanilla & Butter pecan': 0,
-        'Vanilla Oreo': 0,
-        'Chocolate Oreo': 0,    
-      };
+  var flavorPrice = {
+    'Traditional white': 0,
+    'Devils food chocolate': 0,
+    'Strawberry': 0,
+    'Red valvet': 0,
+    'Cherry': 0,
+    'Lemon': 0,
+    'German Chocolate': 0,
+    'Butter pecan': 0,
+    'Vanilla raspberry': 10,
+    'Vanilla blueberry': 10,
+    'Vanilla & Chocolate': 0,
+    'Vanilla & Butter pecan': 0,
+    'Vanilla Oreo': 0,
+    'Chocolate Oreo': 0,
+  };
 
-      var fillingPrice = {
-        'Vanilla': 0,
-        'Chocolate': 0,
-        'Dark chocolate': 0,
-        'White chocolate': 0,
-        'German chocolate': 10,
-        'Cream cheese': 10,
-        'Peanut butter': 0,
-        'Pecan': 10,
-        'Nutella': 10,
-        'Caramel': 0,
-        'Cajeta': 0,
-        'Capuccino': 0,
-        'Snicker': 10,
-      };
+  var fillingPrice = {
+    'Vanilla': 0,
+    'Chocolate': 0,
+    'Dark chocolate': 0,
+    'White chocolate': 0,
+    'German chocolate': 10,
+    'Cream cheese': 10,
+    'Peanut butter': 0,
+    'Pecan': 10,
+    'Nutella': 10,
+    'Caramel': 0,
+    'Cajeta': 0,
+    'Capuccino': 0,
+    'Snicker': 10,
+  };
 
-      var jamPrice = {
-        'Raspberry': 5,
-        'Strawberry': 5,
-        'Cherry': 5,
-        'Blueberry': 5,
-        'Blackberry': 5,
-        'Lemon': 5,
-      };
+  var jamPrice = {
+    'Raspberry': 5,
+    'Strawberry': 5,
+    'Cherry': 5,
+    'Blueberry': 5,
+    'Blackberry': 5,
+    'Lemon': 5,
+  };
 
-      var total = 0;
-      if (cakeSize.value && cakeFlavor.value && cakeFilling.value) {
-        total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
-        if (jamFilling.value) {
-          total += jamPrice[jamFilling.value];
-        }
-      }
+  var frostingPrice = {
+    '1/3 Box|Whipped Cream': 0,
+    '1/3 Box|Nutella': 10,
+    '1/2 Box|Whipped Cream': 0,
+    '1/2 Box|Nutella': 25,
+    '1 Box|Whipped Cream': 0,
+    '1 Box|Nutella': 50,
+    '1-1/2 Box|Whipped Cream': 0,
+    '1-1/2 Box|Nutella': 75,
+    '2 Box|Whipped Cream': 0,
+    '2 Box|Nutella': 100,
+  };      
 
-      var totalAmount = document.getElementById('totalAmount');
-      totalAmount.textContent = '$' + total;
+  var total = 0;
+  if (cakeSize.value && cakeFlavor.value && cakeFilling.value) {
+    total = sizePrice[cakeSize.value] + flavorPrice[cakeFlavor.value] + fillingPrice[cakeFilling.value];
+    if (jamFilling.value) {
+      total += jamPrice[jamFilling.value];
     }
+  }
+
+  var totalAmount = document.getElementById('totalAmount');
+  totalAmount.textContent = '$' + total;
+}
       
     function submitCakeOrder() {
         var fullName = document.getElementById('fullName').value;
