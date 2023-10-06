@@ -286,7 +286,7 @@
       <option value='Whipped Cream'>Whipped Cream</option>
       <option value='Nutella'>Nutella</option>
     </select>
-    <label for='cakeelements'>Would you like any of the following components included? Choose as many as you wish.</label>
+<!--    <label for='cakeelements'>Would you like any of the following components included? Choose as many as you wish.</label>
 <table>
   <tr>
     <td>
@@ -387,7 +387,7 @@
     </td>
   </tr>
 </table>
-    <br/>
+    <br/> -->
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
@@ -504,6 +504,20 @@ function calculateTotal() {
     '5 Box|Nutella': 250,
   };
 
+  var checkboxToppingPrices = {
+    '1/3 Box|Chocolate Drip': 10,
+    '1/2 Box|Chocolate Drip': 15,
+    '1 Box|Chocolate Drip': 20,
+    '1-1/2 Box|Chocolate Drip': 25,
+    '2 Box|Chocolate Drip': 40,
+    '2-1/2 Box|Chocolate Drip': 45,
+    '3 Box|Chocolate Drip': 60,
+    '3-1/2 Box|Chocolate Drip': 65,
+    '4 Box|Chocolate Drip': 80,
+    '4-1/2 Box|Chocolate Drip': 85,
+    '5 Box|Chocolate Drip': 100,
+};
+
   // Verifica si se seleccionó un tamaño y un frosting
   if (cakeSize && cakeFrosting) {
     var frostingPriceKey = cakeSize + '|' + cakeFrosting;
@@ -538,6 +552,7 @@ function calculateTotal() {
         var cakeSize = document.getElementById('cakeSize').value;
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
+        var cakeFrosting = document.getElementId('cakeFrosting').value
         var totalAmount = document.getElementById('totalAmount').textContent;
 
         // Verificar campos obligatorios
@@ -563,6 +578,7 @@ function calculateTotal() {
     *Cake Flavor:* ${cakeFlavor}
     *Cake Filling:* ${cakeFilling}
     *Jam Filling:* ${jamFilling}
+    *Cake Frosting:* ${cakeFrosting}
     *Comments:* ${comments}
     
     *Estimated Total* ${totalAmount}
