@@ -526,40 +526,34 @@ function calculateTotal() {
     'Kinder': 0,
     'Pretzels': 0,
     'Strawberries': 0,
-    'Raspberries': 0,
-    'Blueberries': 0,
-    'Blackberries': 0,
+    'Oreo': 0,
+    'Marshmallows': 0,
+    'Chips Ahoy': 0,
+    'Caramel': 0,
+    'Cajeta': 0,
+    'Brownie': 0,
+    'Churros': 0,
   };
 
-  var checkboxes = document.getElementsByName('topping');
-  var checkboxTotal = 0;
+  // Calcular el costo total del pastel basado en las selecciones del usuario
+  var totalCost = 0;
 
-  for (var i = 0; i < checkboxes.length; i++) {
-    var checkbox = checkboxes[i];
-    if (checkbox.checked) {
-      var checkboxName = checkbox.value;
-      var checkboxPriceKey = cakeSize + '|' + checkboxName;
-      var checkboxPrice = checkboxToppingPrices[checkboxPriceKey] || 0;
-      checkboxTotal += checkboxPrice;
-    }
-  }
+  totalCost += sizePrice[cakeSize];
+  totalCost += flavorPrice[cakeFlavor];
+  totalCost += fillingPrice[cakeFilling];
+  totalCost += jamPrice[jamFilling];
+  totalCost += frostingPrice[cakeSize + '|' + cakeFrosting];
 
-  // Calcula el costo total sumando todos los elementos
-  var sizeCost = sizePrice[cakeSize];
-  var flavorCost = flavorPrice[cakeFlavor];
-  var fillingCost = fillingPrice[cakeFilling];
-  var jamCost = jamPrice[jamFilling] || 0;
-  var frostingCostKey = cakeSize + '|' + cakeFrosting;
-  var frostingCost = frostingPrice[frostingCostKey] || 0;
+  // Calcular el costo de los checkboxes seleccionados
+  var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  checkboxes.forEach(function (checkbox) {
+    var topping = checkbox.value;
+    totalCost += checkboxToppingPrices[cakeSize + '|' + topping];
+  });
 
-  var total = sizeCost + flavorCost + fillingCost + jamCost + frostingCost + checkboxTotal;
-
-  if (isNaN(total)) {
-    total = 0.00; // Establece el total en 0.00 si no se puede calcular
-  }
-
-  var totalAmount = document.getElementById('totalAmount');
-  totalAmount.textContent = '$' + total.toFixed(2);
+  // Mostrar el costo total en la página
+  var totalElement = document.getElementById('totalCost');
+  totalElement.textContent = 'Total Cost: $' + totalCost;
 }
       
     function submitCakeOrder() {
