@@ -586,21 +586,21 @@ function calculateTotal() {
         var formattedDate = new Date(pickupDate + 'T00:00:00').toLocaleDateString('en-US', options).replace(',', '');
       
         var message = `
-            *The Sisters - Cake Order:*
-    
+    *The Sisters - Cake Order:*
+
     *Name:* ${fullName}
     *WhatsAPP:* ${phoneCountry}${phoneNumber}
     *Pickup Date:* ${formattedDate} at ${pickupTime}
-    
+
     *Cake Size:* ${cakeSize}
     *Cake Flavor:* ${cakeFlavor}
     *Cake Filling:* ${cakeFilling}
-    *Jam Filling:* ${jamFilling}
+    ${jamFilling ? `*Jam Filling:* ${jamFilling}` : ''}
     *Cake Frosting:* ${cakeFrosting}
     *Comments:* ${comments}
-    
+
     *Estimated Total* ${totalAmount}
-        `;
+`;
 
         var encodedMessage = encodeURIComponent(message);
         var thesisterswhatsapp = "526258426581"
