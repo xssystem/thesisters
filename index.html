@@ -389,6 +389,15 @@
   </tr>
 </table>
     <br/> -->
+    <!-- Agregar la casilla de selección para la caja -->
+    <label for='cakeBox'>Do you want the cake in a box?</label>
+    <input type='checkbox' id='cakeBox' name='cakeBox' onchange='showBoxImage(this.checked)'>
+    <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
+    <div id='boxImage' style='display: none;'>
+      <a href='CakeBox.jpg' target='_blank'>
+        <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
+      </a>
+    </div>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
@@ -408,6 +417,15 @@
   </form>
 
   <script>
+  function showBoxImage(show) {
+    var boxImage = document.getElementById('boxImage');
+    if (show) {
+      boxImage.style.display = 'block';
+    } else {
+      boxImage.style.display = 'none';
+    }
+  }
+    
     function convertToProperCase(input) {
       var words = input.value.toLowerCase().split(' ');
       for (var i = 0; i < words.length; i++) {
