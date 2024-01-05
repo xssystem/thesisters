@@ -389,15 +389,21 @@
   </tr>
 </table>
     <br/> -->
-    <!-- Agregar la casilla de selección para la caja -->
-    <label for='cakeBox'>Do you want the cake in a box?</label>
-    <input type='checkbox' id='cakeBox' name='cakeBox' onchange='showBoxImage(this.checked)'>
-    <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
-    <div id='boxImage' style='display: none;'>
-      <a href='CakeBox.jpg' target='_blank'>
-        <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
-      </a>
-    </div>
+<!-- Agregar la casilla de selección para la caja -->
+<p>
+  <label>
+    <input type='checkbox' id='cakeBox' name='cakeBox' style='display: none;' onchange='showBoxImage(this.checked)'>
+    Add a Special Box? (Extra Cost)
+    <span id='showBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;' onclick='toggleBoxCheckbox()'>Show Box</span>
+  </label>
+</p>
+<!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
+<div id='boxImage' style='display: none;'>
+  <a href='CakeBox.jpg' target='_blank'>
+    <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
+  </a>
+</div>
+    <br/>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
@@ -424,6 +430,12 @@
     } else {
       boxImage.style.display = 'none';
     }
+  }
+
+  function toggleBoxCheckbox() {
+    var cakeBoxCheckbox = document.getElementById('cakeBox');
+    cakeBoxCheckbox.checked = !cakeBoxCheckbox.checked;
+    showBoxImage(cakeBoxCheckbox.checked);
   }
     
     function convertToProperCase(input) {
