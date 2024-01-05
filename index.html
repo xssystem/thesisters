@@ -390,11 +390,11 @@
 </table>
     <br/> -->
 <!-- Agregar la casilla de selección para la caja -->
-<label for='cakeBox'>Add special box?</label>
-<input type='checkbox' id='cakeBox' name='cakeBox' onchange='toggleBoxImage()'>
+<label for='cakeBox'>Do you want the cake in a box?</label>
+<input type='checkbox' id='cakeBox' name='cakeBox'>
 <!-- Enlace para mostrar y ocultar la imagen de la caja -->
 <p>
-  <span id='showHideBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;'>Show Box</span>
+  <span id='showHideBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;' onclick='toggleBoxImage()'>Show Box</span>
 </p>
 <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
 <div id='boxImage' style='display: none;'>
@@ -425,16 +425,10 @@
   function toggleBoxImage() {
     var boxImage = document.getElementById('boxImage');
     var showHideBoxLink = document.getElementById('showHideBoxLink');
-    var cakeBox = document.getElementById('cakeBox');
     
-    if (cakeBox.checked) {
-      if (boxImage.style.display === 'none') {
-        boxImage.style.display = 'block';
-        showHideBoxLink.innerText = 'Hide Box';
-      } else {
-        boxImage.style.display = 'none';
-        showHideBoxLink.innerText = 'Show Box';
-      }
+    if (boxImage.style.display === 'none') {
+      boxImage.style.display = 'block';
+      showHideBoxLink.innerText = 'Hide Box';
     } else {
       boxImage.style.display = 'none';
       showHideBoxLink.innerText = 'Show Box';
