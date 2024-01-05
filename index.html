@@ -594,7 +594,7 @@ function calculateTotal() {
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
         var cakeFrosting = document.getElementById('cakeFrosting').value;
-        var giftBox = giftBoxCheckbox.checked ? 'Yes' : 'No';
+        var giftBox = document.getElementById('cakeBox').checked ? 'Yes' : 'No';
         var totalAmount = document.getElementById('totalAmount').textContent;
 
         // Verificar campos obligatorios
