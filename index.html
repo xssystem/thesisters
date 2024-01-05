@@ -594,6 +594,7 @@ function calculateTotal() {
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
         var cakeFrosting = document.getElementById('cakeFrosting').value;
+        var giftBox = giftBoxCheckbox.checked ? 'Yes' : 'No';
         var totalAmount = document.getElementById('totalAmount').textContent;
 
         // Verificar campos obligatorios
@@ -620,6 +621,7 @@ function calculateTotal() {
     *Cake Filling:* ${cakeFilling}
     ${jamFilling ? `*Jam Filling:* ${jamFilling}` : ''}
     *Cake Frosting:* ${cakeFrosting}
+    *Gift Box:* ${giftBox}
     *Comments:* ${comments}
 
     *Estimated Total* ${totalAmount}
