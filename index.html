@@ -282,7 +282,8 @@
       <option value='Caramel'>Caramel</option>
       <option value='Cajeta'>Cajeta</option>
       <option value='Capuccino'>Capuccino</option>
-      <option value='Snicker'>Snicker</option>
+      <option value='Snickers vanilla'>Snickers Vanilla</option>
+      <option value='Snickers chocolate'>Snickers Chocolate</option>
     </select>
     <label for='jamFilling'>Cake Filling Jam (Optional):</label>
     <select id='jamFilling' name='jamFilling' onchange='calculateTotal()'>
@@ -511,7 +512,8 @@ function calculateTotal() {
     'Caramel': 0,
     'Cajeta': 0,
     'Capuccino': 0,
-    'Snicker': 10,
+    'Snickers vanilla': 10,
+    'Snickers chocolate': 10,
   };
 
   var jamPrice = {
