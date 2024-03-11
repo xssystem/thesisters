@@ -235,7 +235,7 @@
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
     <select id='cakeSize' name='cakeSize' required onchange='calculateTotal()'>
       <option value=''></option>
-      <option value='1/3 Box'>1/3 Box | 2 Serves</option>
+      <option value='Bento'>Bento | 2 Serves</option>
       <option value='1/2 Box'>1/2 Box | 5-7 Serves</option>
       <option value='1 Box'>1 Box | 9-12 Serves</option>
       <option value='1-1/2 Box'>1-1/2 Box | 13-15 Serves</option>
@@ -467,7 +467,7 @@ function calculateTotal() {
 
   // Definir los precios para cada tamaño, sabor, relleno y frosting de pastel
   var sizePrice = {
-    '1/3 Box': 105,
+    'Bento': 105,
     '1/2 Box': 205,
     '1 Box': 410,
     '1-1/2 Box': 615,
@@ -526,7 +526,7 @@ function calculateTotal() {
   };
 
   var frostingPrice = {
-    '1/3 Box|Whipped Cream': 0,
+    'Bento|Whipped Cream': 0,
     '1/2 Box|Whipped Cream': 0,
     '1 Box|Whipped Cream': 0,
     '1-1/2 Box|Whipped Cream': 0,
@@ -537,7 +537,7 @@ function calculateTotal() {
     '4 Box|Whipped Cream': 0,
     '4-1/2 Box|Whipped Cream': 0,
     '5 Box|Whipped Cream': 0,
-    '1/3 Box|Nutella': 10,
+    'Bento|Nutella': 10,
     '1/2 Box|Nutella': 25,
     '1 Box|Nutella': 50,
     '1-1/2 Box|Nutella': 75,
@@ -548,7 +548,7 @@ function calculateTotal() {
     '4 Box|Nutella': 200,
     '4-1/2 Box|Nutella': 225,
     '5 Box|Nutella': 250,
-    '1/3 Box|CreamCheese': 10,
+    'Bento|CreamCheese': 10,
     '1/2 Box|CreamCheese': 25,
     '1 Box|CreamCheese': 50,
     '1-1/2 Box|CreamCheese': 75,
@@ -562,7 +562,7 @@ function calculateTotal() {
   };
 
   var checkboxToppingPrices = {
-    '1/3 Box|Chocolate Drip': 10,
+    'Bento|Chocolate Drip': 10,
     '1/2 Box|Chocolate Drip': 15,
     '1 Box|Chocolate Drip': 20,
     '1-1/2 Box|Chocolate Drip': 25,
