@@ -611,21 +611,6 @@ function calculateTotal() {
         var giftBox = document.getElementById('cakeBox').checked ? 'Yes' : 'No';
         var totalAmount = document.getElementById('totalAmount').textContent;
 
-          // Crear un enlace para agregar el evento al calendario
-        var calendarLink = `data:text/calendar;charset=utf8,`
-        + `BEGIN:VCALENDAR%0A`
-        + `VERSION:2.0%0A`
-        + `PRODID:-//The Sisters Cake Order//EN%0A`
-        + `SUMMARY:Cake Pickup%0A`
-        + `DESCRIPTION:${cakeSize} Cake Pickup%0A`
-        + `DTSTART:${pickupDate}T${pickupTime.replace(/:/g, '')}00%0A`
-        + `DTEND:${pickupDate}T${pickupTime.replace(/:/g, '')}00%0A`
-        + `LOCATION:The Sisters Bakery%0A`
-        + `END:VCALENDAR`;
-
-        // URL codificada para el enlace de WhatsApp
-        var encodedCalendarLink = encodeURIComponent(calendarLink);
-
         // Verificar campos obligatorios
         if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeFlavor || !cakeFilling || !cakeFrosting) {
             alert('Make sure to fill out all the required fields to place your cake order! Just like mixing the perfect ingredients for a scrumptious treat, each field adds a touch of flavor to your cake masterpiece. Lets infuse every box withh the magic of baking!');
@@ -654,8 +639,6 @@ function calculateTotal() {
     *Comments:* ${comments}
 
     *Estimated Total* ${totalAmount}
-
-    [Add to Calendar](${encodedCalendarLink})
 `;
 
         var encodedMessage = encodeURIComponent(message);
