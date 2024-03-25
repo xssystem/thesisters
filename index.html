@@ -233,7 +233,7 @@
       <option value='08:00 pm'>08:00 PM</option>
     </select>
     <label for='cakeSize'><span class='required'>*</span> Cake Size:</label>
-    <select id='cakeSize' name='cakeSize' required onchange='calculateTotal()'>
+    <select id='cakeSize' name='cakeSize' required onchange='validateCakeFlavor(); calculateTotal()'>
       <option value=''></option>
       <option value='Bento'>Bento | 2 Serves</option>
       <option value='1/2 Box'>1/2 Box | 5-7 Serves</option>
