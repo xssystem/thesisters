@@ -248,7 +248,7 @@
       <option value='5 Box'>5 Box | 45-60 Serves</option>
     </select>
     <label for='cakeFlavor'><span class='required'>*</span> Cake Flavor:</label>
-    <select id='cakeFlavor' name='cakeFlavor' required onchange='calculateTotal()'>
+    <select id='cakeFlavor' name='cakeFlavor' required onchange='validateCakeFlavor(); calculateTotal()'>
       <option value=''></option>
       <option value='Vanilla'>Vanilla</option>
       <option value='Chocolate'>Chocolate</option>
@@ -436,7 +436,21 @@
     </div>
   </form>
 
-  <script>    
+  <script>
+function validateCakeFlavor() {
+    var cakeSize = document.getElementById('cakeSize').value;
+    var cakeFlavor = document.getElementById('cakeFlavor').value;
+
+    // Verificar si el tamaño del pastel es "Bento" o "1/2 Box"
+    if ((cakeSize === 'Bento' || cakeSize === '1/2 Box') &&
+        (cakeFlavor === 'Vanilla & Chocolate' || cakeFlavor === 'Vanilla & Butter pecan')) {
+        // Mostrar un mensaje de error
+        alert("Sorry, you cannot select Vanilla & Chocolate or Vanilla & Butter pecan flavor with Cake Size Bento or 1/2 Box.");
+        // Deshacer la selección
+        document.getElementById('cakeFlavor').value = '';
+    }
+}
+    
   function toggleBoxImage() {
     var boxImage = document.getElementById('boxImage');
     var showHideBoxLink = document.getElementById('showHideBoxLink');
