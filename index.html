@@ -437,6 +437,18 @@
   </form>
 
   <script>
+  function toggleCakeFillingOptions(visible) {
+    var vanillaChocolateOption = document.querySelector("option[value='Vanilla & Chocolate']");
+    var vanillaButterPecanOption = document.querySelector("option[value='Vanilla & Butter pecan']");
+    if (visible) {
+      vanillaChocolateOption.style.display = "block";
+      vanillaButterPecanOption.style.display = "block";
+    } else {
+      vanillaChocolateOption.style.display = "none";
+      vanillaButterPecanOption.style.display = "none";
+    }
+  }
+    
   function toggleBoxImage() {
     var boxImage = document.getElementById('boxImage');
     var showHideBoxLink = document.getElementById('showHideBoxLink');
