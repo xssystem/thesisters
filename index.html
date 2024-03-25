@@ -437,27 +437,6 @@
   </form>
 
   <script>
-  function toggleJamFilling() {
-    var cakeSize = document.getElementById('cakeSize').value;
-    var jamFillingField = document.getElementById('jamFilling');
-
-    // Si se selecciona "Bento" o "1/2 Box", deshabilita el campo de llenado de mermelada
-    if (cakeSize === 'Bento' || cakeSize === '1/2 Box') {
-      jamFillingField.disabled = true;
-      jamFillingField.value = ''; // También limpiamos el valor seleccionado si está deshabilitado
-    } else {
-      jamFillingField.disabled = false;
-    }
-  }
-
-  window.onload = function() {
-    setMinDate();  
-    calculateTotal();
-    toggleJamFilling(); // Llamar a la función al cargar la página para establecer el estado inicial del campo de llenado de mermelada
-  };
-
-  document.getElementById('cakeSize').addEventListener('change', toggleJamFilling); 
-    
   function toggleBoxImage() {
     var boxImage = document.getElementById('boxImage');
     var showHideBoxLink = document.getElementById('showHideBoxLink');
