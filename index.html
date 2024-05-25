@@ -404,19 +404,6 @@
   </tr>
 </table>
 <br/> -->
-<!-- Agregar la casilla de selección para la caja -->
-<!-- <label for='cakeBox'>Add a Gift Box? *Extra cost*</label>
-<input type='checkbox' id='cakeBox' name='cakeBox'> -->
-<!-- Enlace para mostrar y ocultar la imagen de la caja -->
-<!-- <p>
-  <span id='showHideBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;' onclick='toggleBoxImage()'>Show Box</span>
-</p> -->
-<!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
-<!-- <div id='boxImage' style='display: none;'>
-  <a href='CakeBox.jpg' target='_blank'>
-    <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
-  </a>
-</div> -->
     <br/>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
@@ -450,19 +437,7 @@ function validateCakeFlavor() {
         document.getElementById('cakeFlavor').value = '';
     }
 }
-    
-  function toggleBoxImage() {
-    var boxImage = document.getElementById('boxImage');
-    var showHideBoxLink = document.getElementById('showHideBoxLink');
-    
-    if (boxImage.style.display === 'none') {
-      boxImage.style.display = 'block';
-      showHideBoxLink.innerText = 'Hide Box';
-    } else {
-      boxImage.style.display = 'none';
-      showHideBoxLink.innerText = 'Show Box';
-    }
-  }
+  
     
     function convertToProperCase(input) {
       var words = input.value.toLowerCase().split(' ');
@@ -624,7 +599,6 @@ function calculateTotal() {
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
         var cakeFrosting = document.getElementById('cakeFrosting').value;
-        var giftBox = document.getElementById('cakeBox').checked ? 'Yes' : 'No';
         var totalAmount = document.getElementById('totalAmount').textContent;
 
         // Verificar campos obligatorios
@@ -651,7 +625,6 @@ function calculateTotal() {
     *Cake Filling:* ${cakeFilling}
     ${jamFilling ? `*Jam Filling:* ${jamFilling}` : ''}
     *Cake Frosting:* ${cakeFrosting}
-    *Gift Box:* ${giftBox}
     *Comments:* ${comments}
 
     *Estimated Total* ${totalAmount}
