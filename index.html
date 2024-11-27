@@ -456,15 +456,15 @@ function validateCakeFlavor() {
     }
 }
 
-  // Función para alternar el estado del checkbox
+  // Alternar el estado del checkbox cuando se haga clic en el enlace
   function toggleBoxCheckbox() {
     var cakeBoxCheckbox = document.getElementById('cakeBox');
     cakeBoxCheckbox.checked = !cakeBoxCheckbox.checked;
-    showBoxImage(cakeBoxCheckbox.checked);
+    toggleBoxImage(cakeBoxCheckbox.checked);
   }
 
-  // Función para mostrar/ocultar la imagen de la caja
-  function showBoxImage(isChecked) {
+  // Mostrar/ocultar la imagen según el estado del checkbox
+  function toggleBoxImage(isChecked) {
     var boxImage = document.getElementById('boxImage');
     boxImage.style.display = isChecked ? 'block' : 'none';
   }
