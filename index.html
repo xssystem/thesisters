@@ -413,7 +413,7 @@
 
 <!-- Enlace para mostrar y ocultar la imagen de la caja -->
 <p>
-  <span id="showHideBoxLink" style="text-decoration: underline; cursor: pointer; color: blue;" onclick="toggleBoxCheckbox()">Show Box</span>
+  <span id="showHideBoxLink" style="text-decoration: underline; cursor: pointer; color: blue;" onclick="showBoxWithoutCheckbox()">Show Box</span>
 </p>
 
 <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
@@ -456,17 +456,16 @@ function validateCakeFlavor() {
     }
 }
 
-  // Alternar el estado del checkbox cuando se haga clic en el enlace
-  function toggleBoxCheckbox() {
-    var cakeBoxCheckbox = document.getElementById('cakeBox');
-    cakeBoxCheckbox.checked = !cakeBoxCheckbox.checked;
-    toggleBoxImage(cakeBoxCheckbox.checked);
-  }
-
   // Mostrar/ocultar la imagen según el estado del checkbox
   function toggleBoxImage(isChecked) {
     var boxImage = document.getElementById('boxImage');
     boxImage.style.display = isChecked ? 'block' : 'none';
+  }
+
+  // Mostrar la imagen sin alterar el estado del checkbox
+  function showBoxWithoutCheckbox() {
+    var boxImage = document.getElementById('boxImage');
+    boxImage.style.display = 'block'; // Siempre muestra la imagen
   }
   
     function convertToProperCase(input) {
