@@ -246,6 +246,13 @@
       <option value='4-1/2 Box'>4-1/2 Box | 40-54 Serves</option>
       <option value='5 Box'>5 Box | 45-60 Serves</option>
     </select>
+    <label for='cakeHeight'><span class='required'>*</span> Cake Height:</label>
+    <select id='cakeHeight' name='cakeHeight'>
+      <option value=''></option>
+      <option value='Flat'>Flat</option>
+      <option value='Normal'>Normal</option>
+      <option value='Tall'>Tall</option>
+    </select>    
     <label for='cakeFlavor'><span class='required'>*</span> Cake Flavor:</label>
     <select id='cakeFlavor' name='cakeFlavor' required onchange='validateCakeFlavor(); calculateTotal()'>
       <option value=''></option>
