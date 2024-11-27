@@ -407,6 +407,30 @@
 </table>
 <br/> -->
     <br/>
+        <!-- Agregar la casilla de selección para la caja -->
+    <label for='cakeBox'>Do you want the cake in a box?</label>
+    <input type='checkbox' id='cakeBox' name='cakeBox' onchange='showBoxImage(this.checked)'>
+    <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
+    <div id='boxImage' style='display: none;'>
+      <a href='CakeBox.jpg' target='_blank'>
+        <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
+      </a>
+    </div>
+<!-- Agregar la casilla de selección para la caja -->
+<p>
+  <label>
+    <input type='checkbox' id='cakeBox' name='cakeBox' style='display: none;' onchange='showBoxImage(this.checked)'>
+    Add a Special Box? (Extra Cost)
+    <span id='showBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;' onclick='toggleBoxCheckbox()'>Show Box</span>
+  </label>
+</p>
+<!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
+<div id='boxImage' style='display: none;'>
+  <a href='CakeBox.jpg' target='_blank'>
+    <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
+  </a>
+</div>
+    <br/>
     <label for='comments'>Comments:</label>
     <textarea id='comments' name='comments' rows='4'></textarea>
     <div class='cakedesign'>
@@ -439,6 +463,12 @@ function validateCakeFlavor() {
         document.getElementById('cakeFlavor').value = '';
     }
 }
+
+function toggleBoxCheckbox() {
+    var cakeBoxCheckbox = document.getElementById('cakeBox');
+    cakeBoxCheckbox.checked = !cakeBoxCheckbox.checked;
+    showBoxImage(cakeBoxCheckbox.checked);
+  }
   
     
     function convertToProperCase(input) {
@@ -455,6 +485,7 @@ function calculateTotal() {
   var cakeFilling = document.getElementById('cakeFilling').value;
   var jamFilling = document.getElementById('jamFilling').value;
   var cakeFrosting = document.getElementById('cakeFrosting').value;
+  var giftBox = document.getElementById('cakeBox').checked ? 'Yes' : 'No';
 
   // Definir los precios para cada tamaño, sabor, relleno y frosting de pastel
   var sizePrice = {
@@ -620,6 +651,7 @@ function calculateTotal() {
     *Cake Filling:* ${cakeFilling}
     ${jamFilling ? `*Jam Filling:* ${jamFilling}` : ''}
     *Cake Frosting:* ${cakeFrosting}
+    *Gift Box:* ${giftBox}
     *Comments:* ${comments}
 
     *Estimated Total* ${totalAmount}
