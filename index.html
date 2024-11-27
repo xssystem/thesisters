@@ -610,34 +610,35 @@ function calculateTotal() {
   totalAmount.textContent = '0.00';
 }
       
-    function submitCakeOrder() {
-        var fullName = document.getElementById('fullName').value;
-        var phoneCountry = document.getElementById('phoneCountry').value;
-        var phoneNumber = document.getElementById('phoneNumber').value;
-        var pickupDate = document.getElementById('pickupDate').value;
-        var pickupTime = document.getElementById('pickupTime').value;
-        var cakeSize = document.getElementById('cakeSize').value;
-        var cakeHeight = document.getElementById('cakeHeight').value;
-        var cakeFlavor = document.getElementById('cakeFlavor').value;
-        var cakeFilling = document.getElementById('cakeFilling').value;
-        var cakeFrosting = document.getElementById('cakeFrosting').value;
-        var totalAmount = document.getElementById('totalAmount').textContent;
+function submitCakeOrder() {
+    console.log("submitCakeOrder is running...");
 
-        // Verificar campos obligatorios
-        if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeHeight || !cakeFlavor || !cakeFilling || !cakeFrosting) {
-            alert('Make sure to fill out all the required fields to place your cake order! Just like mixing the perfect ingredients for a scrumptious treat, each field adds a touch of flavor to your cake masterpiece. Lets infuse every box withh the magic of baking!');
-            return;
-        }
+    var fullName = document.getElementById('fullName').value.trim();
+    var phoneCountry = document.getElementById('phoneCountry').value.trim();
+    var phoneNumber = document.getElementById('phoneNumber').value.trim();
+    var pickupDate = document.getElementById('pickupDate').value;
+    var pickupTime = document.getElementById('pickupTime').value;
+    var cakeSize = document.getElementById('cakeSize').value;
+    var cakeHeight = document.getElementById('cakeHeight').value;
+    var cakeFlavor = document.getElementById('cakeFlavor').value;
+    var cakeFilling = document.getElementById('cakeFilling').value;
+    var cakeFrosting = document.getElementById('cakeFrosting').value;
+    var giftBox = document.getElementById('cakeBox').checked ? 'Yes' : 'No';
+    var totalAmount = document.getElementById('totalAmount').textContent;
 
-        var jamFilling = document.getElementById('jamFilling').value;
-        var comments = document.getElementById('comments').value;
-        var cakeHeight = document.getElementById('cakeHeight').value;
-        var cakeHeight = document.getElementById('cakeHeight').value;
+    // Verificar campos obligatorios
+    if (!fullName || !phoneCountry || !phoneNumber || !pickupDate || !pickupTime || !cakeSize || !cakeHeight || !cakeFlavor || !cakeFilling || !cakeFrosting) {
+        alert('Make sure to fill out all the required fields to place your cake order!');
+        return;
+    }
 
-        var options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Mexico_City' };
-        var formattedDate = new Date(pickupDate + 'T00:00:00').toLocaleDateString('en-US', options).replace(',', '');
-      
-        var message = `
+    var jamFilling = document.getElementById('jamFilling').value;
+    var comments = document.getElementById('comments').value;
+
+    var options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Mexico_City' };
+    var formattedDate = new Date(pickupDate + 'T00:00:00').toLocaleDateString('en-US', options).replace(',', '');
+
+    var message = `
     *The Sisters - Cake Order:*
 
     *Name:* ${fullName}
@@ -653,16 +654,18 @@ function calculateTotal() {
     *Gift Box:* ${giftBox}
     *Comments:* ${comments}
 
-    *Estimated Total* ${totalAmount}
+    *Estimated Total:* ${totalAmount}
 `;
 
-        var encodedMessage = encodeURIComponent(message);
-        var thesisterswhatsapp = "526258426581"
-        var whatsappLink = `https://wa.me/${thesisterswhatsapp}?text=${encodedMessage}`;
+    var encodedMessage = encodeURIComponent(message);
+    var thesisterswhatsapp = "526258426581";
+    var whatsappLink = `https://wa.me/${thesisterswhatsapp}?text=${encodedMessage}`;
 
-        // Abrir el enlace de WhatsApp
-        window.open(whatsappLink);
-    }
+    console.log("WhatsApp link:", whatsappLink);
+
+    // Abrir el enlace de WhatsApp
+    window.open(whatsappLink);
+}
   
     function setMinDate() {
       var currentDate = new Date();
