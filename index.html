@@ -408,26 +408,19 @@
 <br/> -->
     <br/>
 <!-- Agregar la casilla de selección para la caja -->
-<label for='cakeBox'>Add a Gift Box? *Extra cost*</label>
-<input type='checkbox' id='cakeBox' name='cakeBox'>
-<!-- <label for='cakeBox'>Add a Gift Box? *Extra cost*</label>
-<input type='checkbox' id='cakeBox' name='cakeBox'> -->
+<label for="cakeBox">Add a Gift Box? *Extra cost*</label>
+<input type="checkbox" id="cakeBox" name="cakeBox" onchange="toggleBoxImage(this.checked)">
+
 <!-- Enlace para mostrar y ocultar la imagen de la caja -->
 <p>
-<!-- <p>
-  <span id='showHideBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;' onclick='toggleBoxImage()'>Show Box</span>
+  <span id="showHideBoxLink" style="text-decoration: underline; cursor: pointer; color: blue;" onclick="toggleBoxCheckbox()">Show Box</span>
 </p>
-</p> -->
+
 <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
-<div id='boxImage' style='display: none;'>
-<!-- <div id='boxImage' style='display: none;'>
-  <a href='CakeBox.jpg' target='_blank'>
-    <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
+<div id="boxImage" style="display: none;">
+  <a href="CakeBox.jpg" target="_blank">
+    <img src="CakeBox.jpg" alt="Cake Box Image" style="max-width: 100%;">
   </a>
-</div>
-</div> -->
-    <br/>
-  -->
 </div>
     <br/>
     <label for='comments'>Comments:</label>
