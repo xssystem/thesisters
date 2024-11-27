@@ -247,7 +247,7 @@
       <option value='5 Box'>5 Box | 45-60 Serves</option>
     </select>
     <label for='cakeHeight'><span class='required'>*</span> Cake Height:</label>
-    <select id='cakeHeight' name='cakeHeight'>
+    <select id='cakeHeight' required name='cakeHeight'>
       <option value=''></option>
       <option value='Flat'>Flat</option>
       <option value='Normal'>Normal</option>
@@ -617,6 +617,7 @@ function calculateTotal() {
         var pickupDate = document.getElementById('pickupDate').value;
         var pickupTime = document.getElementById('pickupTime').value;
         var cakeSize = document.getElementById('cakeSize').value;
+        var cakeHeight = document.getElementById('cakeHeight').value;
         var cakeFlavor = document.getElementById('cakeFlavor').value;
         var cakeFilling = document.getElementById('cakeFilling').value;
         var cakeFrosting = document.getElementById('cakeFrosting').value;
@@ -630,6 +631,7 @@ function calculateTotal() {
 
         var jamFilling = document.getElementById('jamFilling').value;
         var comments = document.getElementById('comments').value;
+        var cakeHeight = document.getElementById('cakeHeight').value;
         var cakeHeight = document.getElementById('cakeHeight').value;
 
         var options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Mexico_City' };
