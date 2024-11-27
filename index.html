@@ -610,6 +610,7 @@ function calculateTotal() {
 
         var jamFilling = document.getElementById('jamFilling').value;
         var comments = document.getElementById('comments').value;
+        var cakeHeight = document.getElementById('cakeHeight').value;
 
         var options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Mexico_City' };
         var formattedDate = new Date(pickupDate + 'T00:00:00').toLocaleDateString('en-US', options).replace(',', '');
