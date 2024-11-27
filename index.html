@@ -407,27 +407,18 @@
 </table>
 <br/> -->
     <br/>
-        <!-- Agregar la casilla de selección para la caja -->
-    <label for='cakeBox'>Do you want the cake in a box?</label>
-    <input type='checkbox' id='cakeBox' name='cakeBox' onchange='showBoxImage(this.checked)'>
-    <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
-    <div id='boxImage' style='display: none;'>
-      <a href='CakeBox.jpg' target='_blank'>
-        <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
-      </a>
-    </div>
-<!-- Agregar la casilla de selección para la caja -->
 <p>
   <label>
-    <input type='checkbox' id='cakeBox' name='cakeBox' style='display: none;' onchange='showBoxImage(this.checked)'>
+    <input type="checkbox" id="cakeBox" name="cakeBox" style="display: none;" onchange="showBoxImage(this.checked)">
     Add a Special Box? (Extra Cost)
-    <span id='showBoxLink' style='text-decoration: underline; cursor: pointer; color: blue;' onclick='toggleBoxCheckbox()'>Show Box</span>
+    <span id="showBoxLink" style="text-decoration: underline; cursor: pointer; color: blue;" onclick="toggleBoxCheckbox()">Show Box</span>
   </label>
 </p>
+
 <!-- Div para mostrar la imagen de la caja (inicialmente oculto) -->
-<div id='boxImage' style='display: none;'>
-  <a href='CakeBox.jpg' target='_blank'>
-    <img src='CakeBox.jpg' alt='Cake Box Image' style='max-width: 100%;'>
+<div id="boxImage" style="display: none;">
+  <a href="CakeBox.jpg" target="_blank">
+    <img src="CakeBox.jpg" alt="Cake Box Image" style="max-width: 100%;">
   </a>
 </div>
     <br/>
@@ -464,13 +455,19 @@ function validateCakeFlavor() {
     }
 }
 
-function toggleBoxCheckbox() {
+  // Función para alternar el estado del checkbox
+  function toggleBoxCheckbox() {
     var cakeBoxCheckbox = document.getElementById('cakeBox');
     cakeBoxCheckbox.checked = !cakeBoxCheckbox.checked;
     showBoxImage(cakeBoxCheckbox.checked);
   }
+
+  // Función para mostrar/ocultar la imagen de la caja
+  function showBoxImage(isChecked) {
+    var boxImage = document.getElementById('boxImage');
+    boxImage.style.display = isChecked ? 'block' : 'none';
+  }
   
-    
     function convertToProperCase(input) {
       var words = input.value.toLowerCase().split(' ');
       for (var i = 0; i < words.length; i++) {
